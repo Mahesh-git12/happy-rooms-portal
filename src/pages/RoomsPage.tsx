@@ -1,4 +1,3 @@
-
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
 import Layout from '@/components/Layout';
@@ -24,9 +23,8 @@ const RoomsPage = () => {
   const [nameFilter, setNameFilter] = useState('');
   const [typeFilter, setTypeFilter] = useState('all');
   const [capacityFilter, setCapacityFilter] = useState(1);
-  const [priceFilter, setPriceFilter] = useState([600]);
+  const [priceFilter, setPriceFilter] = useState([25000]);
   
-  // Parse search params if they exist
   useEffect(() => {
     const searchParams = new URLSearchParams(location.search);
     const checkIn = searchParams.get('checkIn');
@@ -37,40 +35,32 @@ const RoomsPage = () => {
       setCapacityFilter(parseInt(guests));
     }
     
-    // Apply filters immediately
     applyFilters();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [location.search]);
   
-  // Filter rooms when filter values change
   useEffect(() => {
     applyFilters();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [nameFilter, typeFilter, capacityFilter, priceFilter]);
   
   const applyFilters = () => {
     let filtered = rooms;
     
-    // Filter by name
     if (nameFilter) {
       filtered = filtered.filter(room => 
         room.name.toLowerCase().includes(nameFilter.toLowerCase())
       );
     }
     
-    // Filter by type
     if (typeFilter !== 'all') {
       filtered = filtered.filter(room => 
         room.type === typeFilter
       );
     }
     
-    // Filter by capacity
     filtered = filtered.filter(room => 
       room.capacity >= capacityFilter
     );
     
-    // Filter by price
     filtered = filtered.filter(room => 
       room.price <= priceFilter[0]
     );
@@ -80,7 +70,6 @@ const RoomsPage = () => {
   
   return (
     <Layout>
-      {/* Page Header */}
       <section className="py-10 bg-gray-100">
         <div className="hotel-container">
           <h1 className="text-3xl font-bold mb-4">Our Rooms</h1>
@@ -90,7 +79,6 @@ const RoomsPage = () => {
         </div>
       </section>
       
-      {/* Search Form */}
       <section className="py-8 bg-white border-b">
         <div className="hotel-container">
           <SearchForm />
@@ -100,14 +88,12 @@ const RoomsPage = () => {
       <section className="section-padding bg-gray-50">
         <div className="hotel-container">
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-            {/* Filters */}
             <div className="lg:col-span-1">
               <div className="bg-white p-6 rounded-lg shadow-md">
                 <h2 className="text-xl font-semibold mb-4">Filters</h2>
                 <Separator className="mb-4" />
                 
                 <div className="space-y-6">
-                  {/* Search by name */}
                   <div>
                     <Label htmlFor="search">Search by Name</Label>
                     <div className="relative mt-1">
@@ -122,7 +108,6 @@ const RoomsPage = () => {
                     </div>
                   </div>
                   
-                  {/* Filter by type */}
                   <div>
                     <Label htmlFor="type">Room Type</Label>
                     <Select
@@ -142,7 +127,6 @@ const RoomsPage = () => {
                     </Select>
                   </div>
                   
-                  {/* Filter by capacity */}
                   <div>
                     <Label htmlFor="capacity">Guests (min {capacityFilter})</Label>
                     <Select
@@ -161,29 +145,27 @@ const RoomsPage = () => {
                     </Select>
                   </div>
                   
-                  {/* Filter by price */}
                   <div>
                     <div className="flex justify-between mb-2">
-                      <Label htmlFor="price">Max Price: ${priceFilter[0]}</Label>
+                      <Label htmlFor="price">Max Price: ₹{priceFilter[0]}</Label>
                     </div>
                     <Slider
                       id="price"
-                      min={100}
-                      max={1000}
-                      step={50}
+                      min={5000}
+                      max={25000}
+                      step={1000}
                       value={priceFilter}
                       onValueChange={setPriceFilter}
                     />
                     <div className="flex justify-between mt-1 text-sm text-gray-500">
-                      <span>$100</span>
-                      <span>$1000</span>
+                      <span>₹5,000</span>
+                      <span>₹25,000</span>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
             
-            {/* Room Results */}
             <div className="lg:col-span-3">
               <div className="mb-4 flex justify-between items-center">
                 <h2 className="text-xl font-semibold">
