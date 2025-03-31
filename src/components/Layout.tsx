@@ -27,7 +27,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
           <div className="flex justify-between items-center">
             <Link to="/" className="flex items-center space-x-2">
               <BedDouble className="h-8 w-8 text-hotel-700" />
-              <span className="text-2xl font-serif font-bold text-hotel-950">HappyRooms</span>
+              <span className="text-2xl font-serif font-bold text-hotel-950">Mahesh Hotels</span>
             </Link>
             
             {/* Desktop Navigation */}
@@ -95,7 +95,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
         <div className="hotel-container">
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             <div>
-              <h3 className="text-lg font-bold mb-4">HappyRooms</h3>
+              <h3 className="text-lg font-bold mb-4">Mahesh Hotels</h3>
               <p className="text-gray-600">
                 The perfect stay for your perfect holiday. Luxury comfort at affordable prices.
               </p>
@@ -115,7 +115,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
               <address className="not-italic text-gray-600">
                 <p>123 Hotel Street</p>
                 <p>New York, NY 10001</p>
-                <p>Email: info@happyrooms.com</p>
+                <p>Email: info@maheshhotels.com</p>
                 <p>Phone: (123) 456-7890</p>
               </address>
             </div>
@@ -123,7 +123,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
           
           <div className="mt-8 pt-6 border-t border-gray-200">
             <p className="text-center text-gray-500">
-              © {new Date().getFullYear()} HappyRooms. All rights reserved.
+              © {new Date().getFullYear()} Mahesh Hotels. All rights reserved.
             </p>
           </div>
         </div>
