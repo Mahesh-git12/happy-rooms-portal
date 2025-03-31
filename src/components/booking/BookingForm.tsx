@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { 
   Card, 
@@ -289,13 +288,13 @@ const BookingForm: React.FC<BookingFormProps> = ({ room, onSuccess }) => {
                 <h3 className="font-semibold mb-2">Price Summary</h3>
                 <div className="flex justify-between mb-2">
                   <span className="text-gray-600">
-                    ${room.price} x {Math.ceil((watchCheckOut.getTime() - watchCheckIn.getTime()) / (1000 * 60 * 60 * 24))} nights
+                    ₹{room.price} x {Math.ceil((watchCheckOut.getTime() - watchCheckIn.getTime()) / (1000 * 60 * 60 * 24))} nights
                   </span>
-                  <span>${totalPrice}</span>
+                  <span>₹{totalPrice}</span>
                 </div>
                 <div className="border-t pt-2 font-bold flex justify-between">
                   <span>Total</span>
-                  <span>${totalPrice}</span>
+                  <span>₹{totalPrice}</span>
                 </div>
               </div>
             )}

@@ -105,7 +105,7 @@ const RoomDetail: React.FC<RoomDetailProps> = ({ room, onBookNow }) => {
           </div>
           
           <div className="text-right">
-            <p className="text-3xl font-bold text-hotel-800">${room.price}</p>
+            <p className="text-3xl font-bold text-hotel-800">₹{room.price}</p>
             <p className="text-gray-500">per night</p>
           </div>
         </div>

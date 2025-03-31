@@ -94,7 +94,7 @@ const BookingCard: React.FC<BookingCardProps> = ({ booking, room }) => {
           Booked on {format(booking.createdAt, "MMM dd, yyyy")}
         </div>
         <div className="font-bold text-hotel-800">
-          ${booking.totalPrice}
+          ₹{booking.totalPrice}
         </div>
       </CardFooter>
     </Card>

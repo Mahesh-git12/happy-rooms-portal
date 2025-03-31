@@ -47,7 +47,7 @@ const RoomCard: React.FC<RoomCardProps> = ({ room, featured = false }) => {
         </p>
         
         <div className="font-bold text-2xl text-hotel-800">
-          ${room.price}<span className="text-sm text-gray-500 font-normal">/night</span>
+          ₹{room.price}<span className="text-sm text-gray-500 font-normal">/night</span>
         </div>
       </CardContent>
       
