@@ -113,10 +113,10 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
             <div>
               <h3 className="text-lg font-bold mb-4">Contact</h3>
               <address className="not-italic text-gray-600">
-                <p>123 Hotel Street</p>
-                <p>New York, NY 10001</p>
+                <p>Church Street</p>
+                <p>Bangalore, 560001</p>
                 <p>Email: info@maheshhotels.com</p>
-                <p>Phone: (123) 456-7890</p>
+                <p>Phone: +91 7075028858</p>
               </address>
             </div>
           </div>
