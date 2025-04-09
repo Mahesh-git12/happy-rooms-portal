@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { Button } from "@/components/ui/button";
 import { BedDouble, Calendar, User, Menu, X } from 'lucide-react';
 import { useToast } from "@/hooks/use-toast";
@@ -8,16 +8,14 @@ import { useToast } from "@/hooks/use-toast";
 const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false);
   const { toast } = useToast();
+  const navigate = useNavigate();
 
   const toggleMobileMenu = () => {
     setMobileMenuOpen(!mobileMenuOpen);
   };
 
-  const showLoginToast = () => {
-    toast({
-      title: "Login feature",
-      description: "Login functionality will be implemented in future updates",
-    });
+  const handleLoginClick = () => {
+    navigate('/login');
   };
 
   return (
@@ -41,7 +39,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
               <Link to="/bookings" className="text-gray-700 hover:text-hotel-700 transition-colors font-medium">
                 My Bookings
               </Link>
-              <Button variant="outline" className="border-hotel-700 text-hotel-700 hover:bg-hotel-50" onClick={showLoginToast}>
+              <Button variant="outline" className="border-hotel-700 text-hotel-700 hover:bg-hotel-50" onClick={handleLoginClick}>
                 <User className="mr-2 h-4 w-4" /> Login
               </Button>
             </nav>
@@ -79,7 +77,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
               >
                 My Bookings
               </Link>
-              <Button variant="outline" className="w-full justify-start border-hotel-700 text-hotel-700 hover:bg-hotel-50" onClick={showLoginToast}>
+              <Button variant="outline" className="w-full justify-start border-hotel-700 text-hotel-700 hover:bg-hotel-50" onClick={handleLoginClick}>
                 <User className="mr-2 h-4 w-4" /> Login
               </Button>
             </nav>
@@ -107,6 +105,7 @@ const Layout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                 <li><Link to="/" className="text-gray-600 hover:text-hotel-700">Home</Link></li>
                 <li><Link to="/rooms" className="text-gray-600 hover:text-hotel-700">Rooms</Link></li>
                 <li><Link to="/bookings" className="text-gray-600 hover:text-hotel-700">My Bookings</Link></li>
+                <li><Link to="/login" className="text-gray-600 hover:text-hotel-700">Login</Link></li>
               </ul>
             </div>
             
