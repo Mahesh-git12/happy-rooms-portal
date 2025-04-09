@@ -2,7 +2,7 @@
 
 ## Project info
 
-**URL**: https://lovable.dev/projects/17c29868-a32f-4f3f-b402-b7564136e8c5
+**URL**: https://preview--happy-rooms-portal.lovable.app/login
 
 ## How can I edit this code?
 
